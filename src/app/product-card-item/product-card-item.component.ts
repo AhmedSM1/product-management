@@ -10,13 +10,13 @@ import { Component,Input ,OnInit } from '@angular/core';
 })
 export class ProductCardItemComponent implements OnInit {
 
-  @Input() product;
+  @Input() currentProduct;
 
 
   constructor( ) { }
 
   ngOnInit(): void {
-    this.product;
+    this.currentProduct;
   }
 
 
