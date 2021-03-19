@@ -1,3 +1,9 @@
+ <button mat-raised-button color="accent" (click)="openDialog()">  
+        <span class="material-icons">
+          add
+          </span>
+        </button>
+        
 <div class="grid-container" *ngFor="let product of products">
 
 <app-product-card-item class="grid-item " [currentProduct]="product" >

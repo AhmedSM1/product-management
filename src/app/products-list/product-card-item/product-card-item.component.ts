@@ -16,6 +16,7 @@ export class ProductCardItemComponent implements OnInit {
   constructor( ) { }
 
   ngOnInit(): void {
+    console.log(this.currentProduct["name"])
     this.currentProduct;
   }
 

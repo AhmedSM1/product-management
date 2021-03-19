@@ -1,0 +1,30 @@
+<h2 mat-dialog-title>Add new product</h2>
+
+    <mat-dialog-content>
+        <form class="product-form">
+            <mat-form-field class="full-width" >
+              <mat-label for="name" >Product name*</mat-label>
+              <input matInput required type="text" id="name" name="name"   [(ngModel)]="data.name" >
+            </mat-form-field>
+    
+            <mat-form-field class="full-width" >
+                <mat-label for="price">Product price*</mat-label>
+                <mat-icon matPrefix> attach_money</mat-icon>
+                <input matInput required type="number"  id="price"  name="price"   [(ngModel)]="data.price" >
+            </mat-form-field>
+    
+              <mat-form-field class="full-width" >
+                <mat-label>picture link</mat-label>
+                <input matInput   type="url"  id="picUrl"  name="picUrl"  [(ngModel)]="data.pic"  >
+              </mat-form-field> 
+    
+            <mat-form-field class="full-width">
+              <mat-label>Product catagory*</mat-label>
+              <input matInput   type="text"  id="catagory"  name="catagory"  [(ngModel)]="data.catagory">
+            </mat-form-field>
+            <button type="submit" mat-stroked-button color="primary" [mat-dialog-close]="data"  >Submit</button>
+          </form>
+          
+    </mat-dialog-content>
+
+

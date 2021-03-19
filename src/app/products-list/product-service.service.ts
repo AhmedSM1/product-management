@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductServiceService {
 
+  products: any[];
 
   constructor(private http: HttpClient) { }
 
 
-
-  getData():Observable<any>{
-    return this.http.get("assets/products.json");
-  }
-
-
-
-
+  getFromJson(){
+      return this.http.get("assets/products.json");
+    }
 
   
+ 
+
+
+}
+export interface Product {
+  name: string;
+  price: number;
+  catagory: String;
+  pic: String
 }

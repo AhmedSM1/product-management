@@ -18,4 +18,8 @@ export class NavBarComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
-}
+
+
+
+  }
+

@@ -9,10 +9,13 @@
       </mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src={{currentProduct.picture}} alt="product Image">
-    <mat-card-content>
-      <p>
-        {{currentProduct.price}}
-      </p>
+    <mat-card-content class="product-content">
+      <span class="material-icons">
+        attach_money
+        </span>
+        {{currentProduct.price}} 
+ 
+ 
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>LIKE</button>

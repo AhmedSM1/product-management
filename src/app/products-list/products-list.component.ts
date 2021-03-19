@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductServiceService } from '../product-service.service';
-import { Router } from '@angular/router';
-
+import { ProductServiceService } from './product-service.service';
+import {AddProductComponent } from './add-product/add-product.component';
+import {MatDialog} from '@angular/material/dialog';
 
 
 @Component({
@@ -11,33 +11,57 @@ import { Router } from '@angular/router';
 })
 export class ProductsListComponent implements OnInit {
 
-  products: Array<any>
+  products: any[];
 
   constructor(private productServiceService: ProductServiceService ,
-    private router: Router ) { }
+    public dialog: MatDialog ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
    this.getProductsFromService()
   }
 
 
-
   getProductsFromService(){
-    this.productServiceService.getData().subscribe(data =>{
+    this.productServiceService.getFromJson().subscribe((data: []) => {
+      console.log("recieved data for "+ data["name"])
       this.products = data;
-    }, error => console.log(error));
-
+       });
     }
 
-    viewDetails(id: number){
-      this.router.navigate(['details',id])
-     }
 
-     updateProduct(id: number){
-      this.router.navigate(['update',id]);
+  openDialog(){
+      const dialogRef = this.dialog.open(AddProductComponent, {
+        data: { 
+        name: this.products["name"],
+        price:  this.products["price"],
+        picture:  this.products["pic"],
+        catagory:  this.products["catagory"] }
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log("result =====>"+result);
+        this.addProduct(result)
+      });
     }
- 
-    addProduct(){
-      this.router.navigate(['add']);
+    
+  
+
+  addProduct(product){
+      console.log("Start, recieved event to create product")
+        if(product != null){
+          this.products.push({
+            id:  this.products.length + 1 ,
+            name: product["name"],
+            price: product["price"],
+            picture: product["pic"],
+            catagory: product["catagory"]
+            
+          }
+          );}
     }
+
+
+
+
+  
+
 }
