@@ -1,12 +1,10 @@
- <button mat-raised-button color="accent" (click)="openDialog()">  
-        <span class="material-icons">
-          add
-          </span>
+ <button  mat-fab color="accent" (click)="openDialog()">  
+  <mat-icon>add</mat-icon>
         </button>
         
 <div class="grid-container" *ngFor="let product of products">
 
-<app-product-card-item class="grid-item " [currentProduct]="product" >
+<app-product-card-item class="grid-item " [currentProduct]="product"   (prodductIsDeleted)="deleteProduct($event)">
 
 </app-product-card-item>
 

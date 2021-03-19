@@ -60,7 +60,10 @@ export class ProductsListComponent implements OnInit {
     }
 
 
-
+  deleteProduct(id){
+      this.products = this.products.filter((product) => product["id"] != id);
+    }
+  
 
   
 

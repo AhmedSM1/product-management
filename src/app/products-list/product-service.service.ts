@@ -15,11 +15,11 @@ export class ProductServiceService {
       return this.http.get("assets/products.json");
     }
 
-  
- 
-
 
 }
+
+
+
 export interface Product {
   name: string;
   price: number;
