@@ -21,6 +21,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductCardItemComponent } from './products-list/product-card-item/product-card-item.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProductComponent } from './products-list/add-product/add-product.component';
+import { EditProductComponent } from './products-list/edit-product/edit-product.component';
 
 
 
@@ -30,7 +31,8 @@ import { AddProductComponent } from './products-list/add-product/add-product.com
     NavBarComponent,
     ProductsListComponent,
     ProductCardItemComponent,
-    AddProductComponent
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,

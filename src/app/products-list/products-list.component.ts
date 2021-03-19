@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProductServiceService } from './product-service.service';
 import {AddProductComponent } from './add-product/add-product.component';
 import {MatDialog} from '@angular/material/dialog';
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 @Component({
@@ -64,6 +65,40 @@ export class ProductsListComponent implements OnInit {
       this.products = this.products.filter((product) => product["id"] != id);
     }
   
+
+  editProduct(editProduct){
+    console.log("Start, recieved event to update product")
+    if(editProduct != null){
+      console.log("Start, updating product with id  "+ editProduct["id"])
+
+        this.products.forEach(product => {
+          if(editProduct["id"] == product["id"] ){
+            console.log("end, found a match ")
+            product["name"] = editProduct["name"];
+            product["price"] = editProduct["price"];
+            product["pic"] = editProduct["pic"];
+            product["catagory"] = editProduct["catagory"];
+          }
+
+        })
+    }
+  }
+
+  openEditDialog(product){
+    const dialogRef = this.dialog.open(EditProductComponent, {
+      data: { 
+      id:  product["id"],
+      name: product["name"],
+      price:  product["price"],
+      picture:  product["pic"],
+      catagory:  product["catagory"] }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("result =====>"+result);
+      this.editProduct(result);
+    });
+  }
+
 
   
 

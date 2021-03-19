@@ -12,6 +12,7 @@ export class ProductCardItemComponent implements OnInit {
 
   @Input() currentProduct;
   @Output() prodductIsDeleted = new EventEmitter();
+  @Output() productIsEdited = new EventEmitter();
 
 
   constructor( ) { }
@@ -22,9 +23,17 @@ export class ProductCardItemComponent implements OnInit {
   }
 
 
-  deleteProduct(productId){
+  deleteProduct(){
     this.prodductIsDeleted.emit(this.currentProduct.id);
   }
+
+  editProduct(){
+    this.productIsEdited.emit(this.currentProduct);
+
+  }
+
+
+
 
 
 
